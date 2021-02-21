@@ -23,7 +23,9 @@
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
-            <th>Name</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Age</th>
             <th>Email</th>
             <th>Password</th>
             <th>Role</th>
@@ -33,8 +35,10 @@
         <tbody>
         <tr th:each="user : ${users}">
 
-            <td th:text="${user.name}"/>
-            <td th:text="${user.mail}"/>
+            <td th:text="${user.firstName}"/>
+            <td th:text="${user.lastName}"/>
+            <td th:text="${user.age}"/>
+            <td th:text="${user.email}"/>
             <td th:text="${user.password}"/>
             <td th:text="${user.roles}"/>
 
@@ -44,51 +48,4 @@
 </div>
 </body>
 </html>
-
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<html>-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">&ndash;&gt;-->
-
-<!--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"-->
-<!--              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">-->
-
-<!--    <title>List of all Users</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div>-->
-<!--    <h2 align="center">Users</h2>-->
-<!--    <table align="center">-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th><b>ID</b></th>-->
-<!--            <th><b>Name</b></th>-->
-<!--            <th><b>Mail</b></th>-->
-<!--            <th><b>Password</b></th>-->
-<!--            <th><b>Roles</b></th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr th:each="user : ${users}">-->
-<!--            <td align="center" th:text="${user.id}"></td>-->
-<!--            <td align="center" th:text="${user.name}"></td>-->
-<!--            <td align="center" th:text="${user.mail}"></td>-->
-<!--            <td align="center" th:text="${user.password}"></td>-->
-<!--            <td align="center" th:text="${user.roles}"></td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
-<!--</div>-->
-<!--<br/>-->
-<!--<p align="center"><a th:href="@{/user/showUser}">Back to user list</a></p>-->
-<!--<br>-->
-<!--<form th:action="@{/logout}" method="post" align="center">-->
-<!--    <input type="submit" value="Sign Out"/>-->
-<!--</form>-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
 

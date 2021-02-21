@@ -21,7 +21,9 @@
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
-            <th>Name</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Age</th>
             <th>Email</th>
             <th>Password</th>
             <th>Role</th>
@@ -30,11 +32,12 @@
 
         <tbody>
         <tr th:each="user : ${user}">
-            <td th:text="${user.name}"/>
-            <td th:text="${user.mail}"/>
+            <td th:text="${user.firstName}"/>
+            <td th:text="${user.lastName}"/>
+            <td th:text="${user.age}"/>
+            <td th:text="${user.email}"/>
             <td th:text="${user.password}"/>
             <td th:text="${user.roles}"/>
-
         </tr>
         </tbody>
     </table>

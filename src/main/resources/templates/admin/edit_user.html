@@ -19,10 +19,16 @@
 
         <input type="hidden" th:field="*{id}"/>
 
-        <input type="text" th:field="*{name}"
+        <input type="text" th:field="*{firstName}"
                class="form-control mb-4 col-4" placeholder="First name" required>
 
-        <input type="text" th:field="*{mail}"
+        <input type="text" th:field="*{lastName}"
+               class="form-control mb-4 col-4" placeholder="Last name" required>
+
+        <input type="text" th:field="*{age}"
+               class="form-control mb-4 col-4" placeholder="Age" required>
+
+        <input type="text" th:field="*{email}"
                class="form-control mb-4 col-4" placeholder="Email" required>
 
         <input type="text" th:field="*{password}"
