@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <title>Admin Directory</title>
 </head>
@@ -14,10 +14,11 @@
 
 <div class="container">
 
+    <br>
     <h3>Admin Directory</h3>
-    <hr>
+    <br>
     <a th:href="@{/logout}" class="btn btn-warning">Log out</a>
-    <hr>
+    <br><br>
     <a th:href="@{/admin/addUserForm}" class="btn btn-primary btn-small mb-3">Add User</a>
 
     <table class="table table-bordered table-striped">
@@ -41,12 +42,12 @@
             <td th:text="${user.age}"/>
             <td th:text="${user.email}"/>
             <td th:text="${user.password}"/>
-            <td th:text="${user.roles}"/>
+            <td th:text="${#strings.arrayJoin(user.roles, ' ')}"></td>
 
             <td>
                 <a th:href="@{/admin/editUserForm/{id}(id=${user.id})}"
                    class="btn btn-info btn-sm">
-                    Update
+                    Edit
                 </a>
                 <a th:href="@{/admin/delete/{id}(id=${user.id})}"
                    class="btn btn-danger btn-sm"
@@ -59,6 +60,7 @@
     </table>
 
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>

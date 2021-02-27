@@ -19,11 +19,6 @@ public class AdminController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
-    public String login() {
-        return "/login";
-    }
-
     @GetMapping("usersList")
     public String usersList(Model model) {
         model.addAttribute("users", userService.findAll());
@@ -33,12 +28,12 @@ public class AdminController {
     @GetMapping("addUserForm")
     public String addUserForm(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("roles", userService.findAllRole());
+        model.addAttribute("roles", userService.findAllRoles());
         return "admin/add_user";
     }
 
     @PostMapping("addUser")
-    public String  addUser(@ModelAttribute User user) {
+    public String addUser(User user) {
         userService.saveUser(user);
         return "redirect:/admin/usersList";
     }
@@ -46,7 +41,7 @@ public class AdminController {
     @GetMapping("editUserForm/{id}")
     public String editUserForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.findById(id));
-        model.addAttribute("roles", userService.findAllRole());
+        model.addAttribute("roles", userService.findAllRoles());
         return "admin/edit_user";
     }
 

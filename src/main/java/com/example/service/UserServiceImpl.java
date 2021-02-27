@@ -28,7 +28,6 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
     @Transactional
     @Override
     public User findById(Long id) {
@@ -56,8 +55,8 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public List<Role> findAllRole() {
-        return roleRepository.findAll();
+    public List<Role> findAllRoles() {
+        return (List<Role>) roleRepository.findAll();
     }
 
 
