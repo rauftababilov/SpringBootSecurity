@@ -11,7 +11,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -20,40 +22,33 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
 
-    @Transactional
     @Override
     public User findById(Long id) {
         return userRepository.findById(id).get();
     }
 
-    @Transactional
     @Override
     public List<User> findAll() {
         return (List<User>) userRepository.findAll();
     }
 
-    @Transactional
     @Override
     public void saveUser(User user) {
         userRepository.save(user);
     }
 
-    @Transactional
     @Override
     public void deleteById(Long id) {
         userRepository.deleteById(id);
     }
 
-
-    @Transactional
     @Override
-    public List<Role> findAllRoles() {
-        return (List<Role>) roleRepository.findAll();
-    }
-
-
-    public User findByEmail(String email) {
-        return userRepository.findByEmail(email);
+    public Set<Role> findAllRoles() {
+//        return (Set<Role>) roleRepository.findAll();
+        Iterable<Role> iterable = roleRepository.findAll();
+        Set<Role> set = new HashSet<>();
+        iterable.forEach(role -> set.add(role));
+        return set;
     }
 
     @Override
